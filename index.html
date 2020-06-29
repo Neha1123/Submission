@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSockets</title>
+    <style>
+    
+    #page-wrapper {
+        width: 500px;
+        background: #FFF;
+        padding: 1em;
+        margin: 1em auto;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8); 
+    }
+    
+    textarea {
+        width: 50%;
+        height: 60%;
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 1px solid #D9D9D9;
+        border-radius: 3px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+        min-height: 50px;
+        margin-bottom: 1rem;
+    }
+
+    input {
+        width: 50%;
+        margin-bottom: 1rem;
+    }
+    </style>
+
+</head>
+<body>
+    <centre>
+    <h2>Sending json over websockets</h2>
+    </centre>
+
+    <div id="page-wrapper">
+        <ul id="messages"></ul>
+        
+        <form id="form-msg" action="/process" method="POST">
+            <label for="rn"><b>Roll Number</b></label>
+            <input type="text" name="rollno" placeholder="Write your Roll No here." required><br>
+            <h3>Description</h3>
+            <textarea placeholder="Write your text here." name="msg" required></textarea><br>
+            <button type="submit" name="send">Send</button>
+            <button type="button" id="close">Close Connection</button>
+        </form>
+    
+    </div>
+
+    
+    <script>    
+        const ws = new WebSocket("ws://localhost:8000");
+        ws.addEventListener("open", e => {
+            consele.console.log("we are connected.");
+//            ws.send("Student has sent some message.");
+            ws.send(JSON.stringify ({
+                x: name,
+                y: msg
+            })); 
+
+//            ws.addEventListener("message", ({ data }) => {
+//                console.log(data);
+//            })
+        });
+    </script>
+
+</body>
+</html>
