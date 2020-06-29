@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processor Page</title>
+    <style>
+    table, th, td {
+    margin-top: 5em;
+    border: 1px solid black;
+    border-collapse: collapse;
+    }
+    th, td {
+    padding: 15px;
+    }
+    </style>
+</head>
+<body>
+    <center>
+    <table style="width:0%">
+        <tr>
+          <th>Roll Number</th>
+          <th>Total words</th>
+          <th>Total Characters</th>
+          <th>Words/minutes</th>
+        </tr>
+        
+        <tr>
+          <td>{{.Rollno}}</td>
+          <td>{{.Nword}}</td>
+          <td>{{.Nchar}}</td>
+          <td>{{.Nws}}</td>
+        </tr>
+      </table>
+    </center>
+</body>
+</html>
